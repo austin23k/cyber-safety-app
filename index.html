@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -11,21 +12,37 @@
 
 <body>
 
+  <!-- HEADER -->
+
   <header>
     <h1>Digital Harassment Awareness</h1>
     <p>Learn how to stay safe online and prevent cyber abuse</p>
   </header>
 
+  <!-- NAVIGATION -->
+
   <nav>
     <a href="#about">About</a>
     <a href="#types">Types</a>
     <a href="#prevention">Prevention</a>
+    <a href="#report">Report Abuse</a>
+    <a href="#support-resources">Resources</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#chat">Chatbot</a>
+    <a href="#contact">Contact</a>
     <a href="#help">Get Help</a>
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+    <button id="themeToggle" type="button" class="theme-toggle">Dark mode</button>
   </nav>
 
+  <!-- HERO -->
+
   <section class="hero">
-    <h1>Stop Digital Harassment</h1>
+    <h2>Stop Digital Harassment</h2>
   </section>
+
+  <!-- MAIN CONTENT -->
 
   <main class="container">
 
@@ -42,37 +59,41 @@
   <h2>Common Types of Digital Harassment</h2>
   <p class="section-intro">Digital abuse takes many forms. Understanding these behaviors is the first step toward recognizing and stopping them.</p>
 
-  <dl class="harassment-grid">
-    <div class="harassment-card">
-      <dt>Cyberbullying & Trolling</dt>
-      <dd>Sending, posting, or sharing malicious, false, or mean content about someone to deliberately humiliate them or bait them into arguments.</dd>
-    </div>
+  <div class="harassment-grid">
+    <article class="harassment-card">
+      <h3>Cyberbullying & Trolling</h3>
+      <p>Sending, posting, or sharing malicious, false, or mean content about someone to deliberately humiliate them or bait them into arguments.</p>
+    </article>
 
-    <div class="harassment-card">
-      <dt>Cyberstalking</dt>
-      <dd>The persistent, unwanted monitoring and tracking of a person's digital footprint, online status, or physical location to create a state of fear.</dd>
-    </div>
+    <article class="harassment-card">
+      <h3>Cyberstalking</h3>
+      <p>The persistent, unwanted monitoring and tracking of a person's digital footprint, online status, or physical location to create a state of fear.</p>
+    </article>
 
-    <div class="harassment-card">
-      <dt>Doxxing</dt>
-      <dd>Researching and publicly broadcasting private or identifying information (like home addresses or phone numbers) without consent to invite real-world harm.</dd>
-    </div>
+    <article class="harassment-card">
+      <h3>Doxxing</h3>
 
-    <div class="harassment-card">
-      <dt>Impersonation</dt>
-      <dd>Creating fake profiles or hijacking existing accounts to pose as the victim, often with the goal of damaging their friendships or reputation.</dd>
-    </div>
+      <p>
+        Sharing private information without consent
+        to cause harm.
+      </p>
+    </article>
 
-    <div class="harassment-card">
-      <dt>Hate Speech & Brigading</dt>
-      <dd>Coordinated group attacks targeting individuals or communities based on protected characteristics like race, religion, gender, or disability.</dd>
-    </div>
+    <article class="harassment-card">
+      <h3>Impersonation</h3>
+      <p>Creating fake profiles or hijacking existing accounts to pose as the victim, often with the goal of damaging their friendships or reputation.</p>
+    </article>
 
-    <div class="harassment-card">
-      <dt>Non-Consensual Image Sharing</dt>
-      <dd>Distributing intimate, sensitive, or private photos and videos of someone without their explicit permission to blackmail or humiliate them.</dd>
-    </div>
-  </dl>
+    <article class="harassment-card">
+      <h3>Hate Speech & Brigading</h3>
+      <p>Coordinated group attacks targeting individuals or communities based on protected characteristics like race, religion, gender, or disability.</p>
+    </article>
+
+    <article class="harassment-card">
+      <h3>Non-Consensual Image Sharing</h3>
+      <p>Distributing intimate, sensitive, or private photos and videos of someone without their explicit permission to blackmail or humiliate them.</p>
+    </article>
+  </div>
 </section>
 
     
@@ -106,29 +127,129 @@
     <section id="help" class="section">
       <h2>Need Help?</h2>
       <p>
-        If you or someone you know is currently experiencing online harassment, you do not have to handle it alone. 
+        If you or someone you know is currently experiencing online harassment, you do not have to handle it alone.
         Talk to a trusted adult, teacher, counselor, or contact dedicated online safety organizations for support.
       </p>
 
-      <button type="button" onclick="showMessage('We are here to support you!')">
+      <button type="button" id="supportButton">
         Click for Support Message
       </button>
 
-      <div id="message" role="alert"></div>
+      <div id="message" role="status" aria-live="polite"></div>
+    </section>
+
+    <section id="quiz" class="section">
+      <h2>Interactive Safety Quiz</h2>
+      <p>Test your knowledge about online harassment, privacy, and safe behavior.</p>
+      <p class="section-intro">Login to save your quiz progress and get personalized guidance on the topics you choose.</p>
+      <div class="form-box">
+        <div class="quiz-controls">
+          <label for="quizModuleSelect">Choose a learning module</label>
+          <select id="quizModuleSelect">
+            <option value="">Loading modules...</option>
+          </select>
+          <button id="loadQuizButton" type="button" class="button button-secondary">Load Quiz</button>
+        </div>
+        <form id="quizForm"></form>
+        <div id="quizFeedback" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="chat" class="section">
+      <h2>Ask the Safety Assistant</h2>
+      <p>Get immediate guidance on reporting abuse, protecting privacy, and responding to harassment.</p>
+      <p class="section-intro">You can ask the assistant any question about staying safe online, reporting abuse, or protecting your privacy.</p>
+      <div class="form-box chat-box">
+        <div id="chatTranscript" class="chat-transcript">
+          <p class="chat-placeholder">Type a question and hit send to speak with the safety assistant.</p>
+        </div>
+        <form id="chatForm">
+          <label for="chatQuestion">Your question</label>
+          <textarea id="chatQuestion" name="question" required placeholder="How do I report online harassment?" rows="4"></textarea>
+          <button type="submit">Send Question</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="support-resources" class="section">
+      <h2>Support Resources</h2>
+      <p>Trusted resources to help you stay safe and find support.</p>
+      <div id="resources" class="resource-box">
+        <p>Loading support resources...</p>
+      </div>
+    </section>
+
+    <section id="report" class="section">
+      <h2>Report Digital Harassment</h2>
+      <div class="form-box">
+        <form id="reportForm">
+          <label for="type">Report type</label>
+          <select id="type" name="type" required>
+            <option value="">Choose a type</option>
+            <option value="Cyberbullying">Cyberbullying</option>
+            <option value="Harassment">Harassment</option>
+            <option value="Threats">Threats</option>
+            <option value="Impersonation">Impersonation</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="description">Description</label>
+          <textarea id="description" name="description" required placeholder="Describe what happened"></textarea>
+
+          <label for="email">Email (optional)</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com">
+
+          <label for="severity">Severity</label>
+          <select id="severity" name="severity" required>
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+
+          <button type="submit">Submit Report</button>
+        </form>
+        <div id="reportMessage" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact Support</h2>
+      <div class="form-box blue-box">
+        <form id="contactForm">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required placeholder="Your name">
+
+          <label for="contactEmail">Email</label>
+          <input id="contactEmail" name="contactEmail" type="email" required placeholder="you@example.com">
+
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" type="text" required placeholder="Subject">
+
+          <label for="contactMessageInput">Message</label>
+          <textarea id="contactMessageInput" name="contactMessageInput" required placeholder="Write your message"></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+        <div id="contactMessage" role="status" aria-live="polite"></div>
+      </div>
     </section>
 
   </main>
+
+  <!-- FOOTER -->
 
   <footer>
     <p>&copy; 2026 Digital Safety Awareness Hub. All rights reserved.</p>
   </footer>
 
+  <!-- JAVASCRIPT -->
+  <script src="api.js"></script>
+  <script src="main.js"></script>
   <script>
     function showMessage(message) {
       const messageContainer = document.getElementById("message");
-      messageContainer.innerHTML = message;
+      messageContainer.innerText = message;
     }
   </script>
-
 </body>
 </html>
